@@ -1,0 +1,16 @@
+services:
+  assistant:
+    build: .
+    image: python-ai-assistant:0.1.0
+    # Secrets come from .env at runtime; they are never baked into the image.
+    env_file: .env
+    environment:
+      DATABASE_PATH: /app/data/assistant.db
+    volumes:
+      - assistant-data:/app/data
+    # Come back after crashes and server reboots.
+    restart: unless-stopped
+    # No ports: Telegram long polling only makes outgoing connections.
+
+volumes:
+  assistant-data:

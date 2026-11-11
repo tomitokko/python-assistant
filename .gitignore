@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local data (from Part 4 onwards)
+data/
+*.db
+*.sqlite3
+
+# OS / editor
+.DS_Store
